@@ -34,20 +34,14 @@ class _WelcomePageState extends State<WelcomePage> {
               colors: [
                 primarycolor,
                 Color(0xFFFFCC80),
-
               ],
-            )
-            
-
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                
-              ],
-              ],
-             ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[],
+          ),
         ),
       ),
     );
