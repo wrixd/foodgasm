@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'utilities/Mediaquery.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'login_page.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key? key, required this.title}) : super(key: key);
@@ -14,8 +15,12 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _login() {
     return InkWell(
       onTap: () {
-        //  Navigator.push(
-        // context, MaterialPageRoute(builder: (context) => LoginPage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => LoginPage(
+                      title: '',
+                    )));
       },
       child: SizedBox(
         width: 300,
