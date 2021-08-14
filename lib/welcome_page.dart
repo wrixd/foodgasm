@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'utilities/Mediaquery.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'login_page.dart';
+import 'signup_page.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key? key, required this.title}) : super(key: key);
@@ -16,11 +17,13 @@ class _WelcomePageState extends State<WelcomePage> {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LoginPage(
-                      title: '',
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(
+              title: '',
+            ),
+          ),
+        );
       },
       child: SizedBox(
         width: 300,
@@ -46,8 +49,14 @@ class _WelcomePageState extends State<WelcomePage> {
   Widget _signUpButton() {
     return InkWell(
       onTap: () {
-        //  Navigator.push(
-        // context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => SignUpPage(
+              title: '',
+            ),
+          ),
+        );
       },
       child: SizedBox(
         width: 300,
