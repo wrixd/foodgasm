@@ -42,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
         children: <Widget>[
           Text(
             title,
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
           ),
           SizedBox(
             height: 10,
@@ -174,7 +174,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: -getDeviceHeight(context) * .15,
+              top: getDeviceHeight(context) * .15,
               right: -MediaQuery.of(context).size.width * .4,
               child: BezierContainer(),
             ),
@@ -195,7 +195,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       height: 20,
                     ),
                     _submitButton(),
-                    SizedBox(height: height * .14),
+                    SizedBox(height: height * .04),
                     _loginAccountLabel(),
                   ],
                 ),
