@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'utilities/Mediaquery.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -25,8 +26,13 @@ class _LoginPageState extends State<LoginPage> {
               padding: EdgeInsets.only(left: 0, top: 10, bottom: 10),
               child: Icon(Icons.keyboard_arrow_left, color: Colors.black),
             ),
-            Text('Back',
-                style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500))
+            Text(
+              'Back',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ),
@@ -146,30 +152,31 @@ class _LoginPageState extends State<LoginPage> {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          style: GoogleFonts.portLligatSans(
-            textStyle: Theme.of(context).textTheme.headline1,
-            fontSize: 30,
-            fontWeight: FontWeight.w700,
-            color: Color(0xffe46b10),
+        style: GoogleFonts.portLligatSans(
+          textStyle: Theme.of(context).textTheme.headline1,
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          color: Color(0xffe46b10),
+        ),
+        children: [
+          TextSpan(
+            text: 'Fo',
+            style: TextStyle(color: Colors.black, fontSize: 35),
           ),
-          children: [
-            TextSpan(
-              text: 'Fo',
-              style: TextStyle(color: Colors.black, fontSize: 35),
-            ),
-            TextSpan(
-              text: 'od',
-              style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
-            ),
-            TextSpan(
-              text: 'ga',
-              style: TextStyle(color: Colors.black, fontSize: 35),
-            ),
-            TextSpan(
-              text: 'sm',
-              style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
-            ),
-          ]),
+          TextSpan(
+            text: 'od',
+            style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
+          ),
+          TextSpan(
+            text: 'ga',
+            style: TextStyle(color: Colors.black, fontSize: 35),
+          ),
+          TextSpan(
+            text: 'sm',
+            style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
+          ),
+        ],
+      ),
     );
   }
 
@@ -179,6 +186,38 @@ class _LoginPageState extends State<LoginPage> {
         _entryEmail("Email id"),
         _entryPassword("Password", isPassword: true),
       ],
+    );
+  }
+
+  Widget _loginBar() {
+    return SizedBox(
+      width: getDeviceWidth(context),
+      child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Login with",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.orange,
+                  fontSize: 20),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: FaIcon(FontAwesomeIcons.google),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: FaIcon(FontAwesomeIcons.facebook),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: FaIcon(FontAwesomeIcons.twitter),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
@@ -217,6 +256,10 @@ class _LoginPageState extends State<LoginPage> {
                             fontSize: 14, fontWeight: FontWeight.w500),
                       ),
                     ),
+                    SizedBox(
+                      height: getDeviceHeight(context) * 0.05,
+                    ),
+                    _loginBar(),
                     SizedBox(height: height * .055),
                     _createAccountLabel(),
                   ],
