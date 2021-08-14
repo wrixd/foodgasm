@@ -34,7 +34,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 
-  Widget _entryField(String title, {bool isPassword = false}) {
+  Widget _entryField(String title, String hint, {bool isPassword = false}) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       child: Column(
@@ -48,11 +48,13 @@ class _SignUpPageState extends State<SignUpPage> {
             height: 10,
           ),
           TextField(
-              obscureText: isPassword,
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor: Color(0xfff3f3f4),
-                  filled: true))
+            obscureText: isPassword,
+            decoration: InputDecoration(
+                hintText: hint,
+                border: InputBorder.none,
+                fillColor: Color(0xfff3f3f4),
+                filled: true),
+          )
         ],
       ),
     );
@@ -60,11 +62,11 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _submitButton() {
     return Container(
-      width: MediaQuery.of(context).size.width,
+      width: getDeviceWidth(context),
       padding: EdgeInsets.symmetric(vertical: 15),
       alignment: Alignment.center,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(5)),
+          borderRadius: BorderRadius.all(Radius.circular(50)),
           boxShadow: <BoxShadow>[
             BoxShadow(
                 color: Colors.grey.shade200,
@@ -75,7 +77,7 @@ class _SignUpPageState extends State<SignUpPage> {
           gradient: LinearGradient(
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
-              colors: [Color(0xfffbb448), Color(0xfff7892b)])),
+              colors: [Colors.orange, Colors.orange])),
       child: Text(
         'Register Now',
         style: TextStyle(fontSize: 20, color: Colors.white),
@@ -87,11 +89,13 @@ class _SignUpPageState extends State<SignUpPage> {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => LoginPage(
-                      title: '',
-                    )));
+          context,
+          MaterialPageRoute(
+            builder: (context) => LoginPage(
+              title: '',
+            ),
+          ),
+        );
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20),
@@ -124,46 +128,53 @@ class _SignUpPageState extends State<SignUpPage> {
     return RichText(
       textAlign: TextAlign.center,
       text: TextSpan(
-          text: 'd',
-          style: GoogleFonts.portLligatSans(
-            // textStyle: Theme.of(context).textTheme.display1,
-            fontSize: 30,
-            fontWeight: FontWeight.w700,
-            color: Color(0xffe46b10),
+        style: GoogleFonts.portLligatSans(
+          fontSize: 30,
+          fontWeight: FontWeight.w700,
+          color: Color(0xffe46b10),
+        ),
+        children: [
+          TextSpan(
+            text: 'Fo',
+            style: TextStyle(color: Colors.black, fontSize: 35),
           ),
-          children: [
-            TextSpan(
-              text: 'ev',
-              style: TextStyle(color: Colors.black, fontSize: 30),
-            ),
-            TextSpan(
-              text: 'rnz',
-              style: TextStyle(color: Color(0xffe46b10), fontSize: 30),
-            ),
-          ]),
+          TextSpan(
+            text: 'od',
+            style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
+          ),
+          TextSpan(
+            text: 'ga',
+            style: TextStyle(color: Colors.black, fontSize: 35),
+          ),
+          TextSpan(
+            text: 'sm',
+            style: TextStyle(color: Color(0xffe46b10), fontSize: 35),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        _entryField("Username"),
-        _entryField("Email id"),
-        _entryField("Password", isPassword: true),
+        _entryField("Username", "Enter your Username"),
+        _entryField("Email id", "Enter your Email"),
+        _entryField("Password", "Enter your password", isPassword: true),
       ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
+    final height = getDeviceHeight(context);
     return Scaffold(
       body: Container(
         height: height,
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: -MediaQuery.of(context).size.height * .15,
+              top: -getDeviceHeight(context) * .15,
               right: -MediaQuery.of(context).size.width * .4,
               child: BezierContainer(),
             ),

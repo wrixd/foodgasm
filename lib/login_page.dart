@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'utilities/Mediaquery.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'signup_page.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key? key, required this.title}) : super(key: key);
@@ -118,8 +119,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget _createAccountLabel() {
     return InkWell(
       onTap: () {
-        // Navigator.push(
-        //context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => SignUpPage(
+                      title: '',
+                    )));
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 20),
